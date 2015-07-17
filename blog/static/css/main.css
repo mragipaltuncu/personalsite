@@ -41,3 +41,25 @@ footer {
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
     color: #333;
+}
+
+div.index-container {
+    color:black;
+    background-color: #ececec !important
+}
+
+img.img-responsive.jumbo {
+
+    border-radius: 15px; 
+    height:auto; 
+    max-width: 60%; 
+    margin-left:auto;
+    margin-right: auto
+
+}
+
+h2.orange {
+
+    color: #a32924;
+    
+}
