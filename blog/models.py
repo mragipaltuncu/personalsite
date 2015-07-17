@@ -4,6 +4,8 @@ from django_markdown.models import MarkdownField
 class EntryQuerySet(models.QuerySet):
     def published(self):
         return self.filter(publish=True)
+    def latest(self):
+        return self.latest('created')
 
 # Create your models here.
 class Entry(models.Model):
