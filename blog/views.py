@@ -13,3 +13,9 @@ class BlogIndexView(generic.TemplateView):
         # Add in a QuerySet of all the books
         context['entry'] = models.Entry.objects.order_by('created').last()
         return context
+
+def index(request):
+    entry = models.Entry.objects.order_by('created').last()
+    return render(request,'index.html', {
+        'entry':entry
+        })
