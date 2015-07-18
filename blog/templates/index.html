@@ -1,5 +1,6 @@
 {% extends "layouts/base.html" %}
 {% load staticfiles %}
+{% load django_markdown %}
 
 {% block content %}
 <!-- Page Content -->
@@ -15,11 +16,13 @@
         </div>
     </div>
 <br>
+
  <div class="index-container">
     <div class="container">
        
             <div class="row">
-            
+            {% for object in object_list %}
+                
             <!-- Blog Post Content Column -->
                 <div class="col-lg-8 col-lg-offset-2">
                     
@@ -27,28 +30,37 @@
                     <!-- Blog Post -->
                     <br>
                     <!-- Title -->
-                    <h2 class="orange">{{ entry.title }}</h2>
+                    <h2 class="orange">{{ object.title }}</h2>
 
                     <hr>
 
                     <!-- Date/Time -->
-                    <p><span class="glyphicon glyphicon-time"></span> Posted on {{ entry.created}}</p>
+                    <p><span class="glyphicon glyphicon-time"></span> Posted on {{ object.created}}</p>
 
                     <!-- Preview Image -->
-                    {% if entry.image_url %}
+                    {% if object.image_url %}
                         
                     
-                    <img style="max-width:900px; max-height: 300px" class="img-responsive" src=" {{ entry.image_url }}" alt="">
+                    <img style="max-width:900px; max-height: 300px" class="img-responsive" src=" {{ object.image_url }}" alt="">
 
                     {% endif %}
 
                     <hr>
 
                     <!-- Post Content -->
-                    <p class="lead">{{ entry.summary }}</p>
+                    <p class="lead">{{ object.summary|markdown }}</p>
                     <p><a href="">Devamını Oku - Continue Reading >> </a></p>
-                
+                    <hr>
             </div>
+            {% endfor %}
+
         </div>  
     </div>
+
+              {% if is_paginated %}
+            <ul class="pager">
+              <li {% if not page_obj.has_previous %}class="disabled"{% endif %}><a {% if page_obj.has_previous %}href="?page={{ page_obj.previous_page_number }}"{% endif %}>Prev</a></li>
+              <li {% if not page_obj.has_next %}class="disabled"{% endif %}><a {% if page_obj.has_next %}href="?page={{ page_obj.next_page_number }}"{% endif %}>Next</a></li>
+            </ul>
+    {% endif %}
 {% endblock content %}
