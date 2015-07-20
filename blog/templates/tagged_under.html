@@ -2,26 +2,14 @@
 {% load staticfiles %}
 {% load django_markdown %}
 
-
 {% block content %}
 <!-- Page Content -->
-{% if not page_obj.has_previous %}
-    <div class="container">
 
-        <div class="row">
-
-            <!-- Blog Post Content Column -->
-            <div class="col-lg-8 col-lg-offset-2">
-            <img class="img-responsive jumbo" src="{% static "img/jumbo.jpg" %}" alt="">
-            </div>
-        </div>  
-    </div>
-<br>
-{%endif%}
  <div class="index-container">
     <div class="container">
        
             <div class="row">
+            <h1>Posts tagged under : {{ object.tags.all }}</h1>
             {% for object in object_list %}
                 
             <!-- Blog Post Content Column -->
@@ -34,8 +22,7 @@
 
                     
                     <!-- Date/Time -->
-                    <p class="meta"><span class="glyphicon glyphicon-time"></span> Posted on {{ object.created}}</p>
-                     <p class="meta">Tags: {{ object.tags.all|join:", "}}</p>
+                    <p><span class="glyphicon glyphicon-time"></span> Posted on {{ object.created}}</p>
 
                     <!-- Preview Image -->
                     {% if object.image_url %}
@@ -49,7 +36,7 @@
 
                     <!-- Post Content -->
                     <p class="lead">{{ object.summary|markdown }}</p>
-                    <p><a href="{{ object.get_absolute_url }}">Devamını Oku - Continue Reading >> </a></p>
+                    <p><a href="">Devamını Oku - Continue Reading >> </a></p>
                     <hr>
             </div>
             {% endfor %}

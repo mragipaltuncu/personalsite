@@ -2,6 +2,12 @@ from django.db import models
 from django_markdown.models import MarkdownField
 from django.core.urlresolvers import reverse
 
+class Tag(models.Model):
+    tag = models.SlugField(unique=True)
+
+    def __str__(self):
+        return self.tag
+
 class EntryQuerySet(models.QuerySet):
     def published(self):
         return self.filter(publish=True)
@@ -18,6 +24,7 @@ class Entry(models.Model):
     publish = models.BooleanField(default=True)
     slug = models.SlugField(unique=True)
     image_url = models.URLField(null=True,blank=True,default=None)
+    tags = models.ManyToManyField(Tag)
 
     objects = EntryQuerySet.as_manager()
 

@@ -18,3 +18,9 @@ class AboutView(generic.TemplateView):
 class EntryDetailView(generic.DetailView):
     model = models.Entry
     template_name = "entry_detail.html"
+
+
+class TagFilterView(generic.ListView,slug):
+    entries = models.Entry.objects.all()
+    queryset=[entry for entry in entries if entry.tags.filter(tag=slug)]
+    template_name = "tag_filter.html"

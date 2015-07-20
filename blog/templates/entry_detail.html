@@ -21,6 +21,7 @@
                     
                     <!-- Date/Time -->
                     <p><span class="glyphicon glyphicon-time"></span> Posted on {{ object.created}}</p>
+                    <p class="meta">{{ object.tags }}</p>
 
                     <!-- Preview Image -->
                     {% if object.image_url %}
@@ -34,7 +35,7 @@
 
                     <!-- Post Content -->
                     <p class="lead">{{ object.body|markdown }}</p>
-                    <p><a href=""><< Back</a></p>
+                    <p><a href="">< < Back</a></p>
                     <hr>
             </div>
 

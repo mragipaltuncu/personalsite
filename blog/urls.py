@@ -13,7 +13,6 @@ urlpatterns = [
         name="about"),
     url(r'^blog/entry_detail/(?P<slug>[-\w]+)/$',
         views.EntryDetailView.as_view(),
-        name="entry_detail")
+        name="entry_detail"),
 
-
-]
+    ]
