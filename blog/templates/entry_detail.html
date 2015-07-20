@@ -4,24 +4,11 @@
 
 {% block content %}
 <!-- Page Content -->
-{% if not page_obj.has_previous %}
-    <div class="container">
 
-        <div class="row">
-
-            <!-- Blog Post Content Column -->
-            <div class="col-lg-8 col-lg-offset-2">
-            <img class="img-responsive jumbo" src="{% static "img/jumbo.jpg" %}" alt="">
-            </div>
-        </div>
-    </div>
-<br>
-{%endif%}
  <div class="index-container">
     <div class="container">
        
             <div class="row">
-            {% for object in object_list %}
                 
             <!-- Blog Post Content Column -->
                 <div class="col-lg-8 col-lg-offset-2 darker">
@@ -46,11 +33,10 @@
                     <hr>
 
                     <!-- Post Content -->
-                    <p class="lead">{{ object.summary|markdown }}</p>
-                    <p><a href="{{ object.get_absolute_url }}">Devamını Oku - Continue Reading >> </a></p>
+                    <p class="lead">{{ object.body|markdown }}</p>
+                    <p><a href=""><< Back</a></p>
                     <hr>
             </div>
-            {% endfor %}
 
         </div>  
     </div>

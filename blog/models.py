@@ -1,5 +1,6 @@
 from django.db import models
 from django_markdown.models import MarkdownField
+from django.core.urlresolvers import reverse
 
 class EntryQuerySet(models.QuerySet):
     def published(self):
@@ -19,8 +20,12 @@ class Entry(models.Model):
     image_url = models.URLField(null=True,blank=True,default=None)
 
     objects = EntryQuerySet.as_manager()
+
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("entry_detail", kwargs={"slug": self.slug})  
 
     class Meta:
         verbose_name='Blog Entry'

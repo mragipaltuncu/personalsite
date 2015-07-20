@@ -7,9 +7,14 @@ class BlogIndexView(generic.ListView):
     template_name = "index.html"
     paginate_by = 2
 
+class EntryListView(generic.ListView):
+    model = models.Entry
+    template_name = "entry_list.html"
 
-def index(request):
-    entry = models.Entry.objects.order_by('created').last()
-    return render(request,'index.html', {
-        'entry':entry
-        })
+class AboutView(generic.TemplateView):
+    template_name = "about.html"
+
+
+class EntryDetailView(generic.DetailView):
+    model = models.Entry
+    template_name = "entry_detail.html"
