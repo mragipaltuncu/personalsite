@@ -1,0 +1,31 @@
+{% extends "layouts/base.html" %}
+{% load staticfiles %}
+{% load django_markdown %}
+
+{% block content %}
+<!-- Page Content -->
+
+ <div class="index-container">
+    <div class="container">
+        <div class="row">
+        {% for year in view.years  %}
+            <div class="col-lg-8 col-lg-offset-2 darker">
+               <h1 class="text-center">{{ year }}</h1>
+               {% for object in object_list %}
+                <!-- Blog Post -->
+
+                <!-- Title -->
+                <h2 class="orange">{{ object.title }}</h2>
+                <!-- Date/Time -->
+                <p><span class="glyphicon glyphicon-time"></span> Posted on {{ object.created}}</p>
+                <!-- Post Content -->
+                <p class="lead">{{ object.summary|markdown }}</p>
+                <p><a href="">More <i class="fa fa-arrow-right"></i> </a></p>
+                <hr>
+                
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>  
+</div>
+{% endblock content %}

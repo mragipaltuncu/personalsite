@@ -35,7 +35,7 @@
                     
                     <!-- Date/Time -->
                     <p class="meta"><span class="glyphicon glyphicon-time"></span> Posted on {{ object.created}}</p>
-                     <p class="meta">Tags: {{ object.tags.all|join:", "}}</p>
+                     <p class="meta tag">Tags: {{ object.tags.all|join:", "}}</p>
 
                     <!-- Preview Image -->
                     {% if object.image_url %}
