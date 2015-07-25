@@ -20,39 +20,21 @@
 {%endif%}
  <div class="index-container">
     <div class="container">
-       
-            <div class="row">
-            {% for object in object_list %}
-                
+         <div class="row">
             <!-- Blog Post Content Column -->
-                <div class="col-lg-8 col-lg-offset-2 darker">
-                    
-                    <!-- Blog Post -->
-                    <br>
-                    <!-- Title -->
-                    <h2 class="orange">{{ object.title }}</h2>
-
-                    
-                    <!-- Date/Time -->
-                    <p class="meta"><span class="glyphicon glyphicon-time"></span> Posted on {{ object.created}}</p>
-                     <p class="meta tag">Tags: {{ object.tags.all|join:", "}}</p>
-
-                    <!-- Preview Image -->
-                    {% if object.image_url %}
-                        
-                    
-                    <img style="max-width:900px; max-height: 300px" class="img-responsive" src=" {{ object.image_url }}" alt="">
-
-                    {% endif %}
-
-                    <hr>
-
-                    <!-- Post Content -->
-                    <p class="lead">{{ object.summary|markdown }}</p>
-                    <p><a href="{{ object.get_absolute_url }}">Devamını Oku - Continue Reading >> </a></p>
-                    <hr>
-            </div>
+            <div class="col-lg-8 col-lg-offset-2 darker">
+            {% for object in object_list %}
+                <!-- Title -->
+                <h2 class="orange">{{ object.title }}</h2>
+                <!-- Date/Time -->
+                <p><i class="icon-tablet"></i>Posted on {{ object.created}}</p>
+                <!-- Post Content -->
+                <p class="lead">{{ object.summary|markdown }}</p>
+                <p><a href="{{ object.get_absolute_url }}">More <i class="fa fa-arrow-right"></i><i class="fa fa-arrow-right"></i> </a></p>
+                
             {% endfor %}
+
+            </div>
 
         </div>  
     </div>

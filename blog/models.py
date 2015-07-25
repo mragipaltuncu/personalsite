@@ -2,6 +2,7 @@ from django.db import models
 from django_markdown.models import MarkdownField
 from django.core.urlresolvers import reverse
 
+
 class Tag(models.Model):
     tag = models.SlugField(unique=True)
 
@@ -38,4 +39,5 @@ class Entry(models.Model):
         verbose_name='Blog Entry'
         verbose_name_plural='Blog Entries'
         ordering = ['-created']
+
 

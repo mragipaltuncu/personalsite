@@ -45,7 +45,7 @@ footer {
 
 div.index-container {
     color:black;
-    background-color: #ececec ;
+    background-color: #ececec;
 }
 
 img.img-responsive.jumbo {
@@ -61,11 +61,15 @@ img.img-responsive.jumbo {
 h2.orange {
 
     color: #a32924;
-
+    font-family: 'Ubuntu', sans-serif;
 }
 
 div.darker {
-    background-color :#d4d4d4;
+    border-style: solid;
+    border-width:3px;
+    border-top:none;
+    border-color: #FFFFFF;
+    border-radius: 5px;
 }
 
 hr { 
